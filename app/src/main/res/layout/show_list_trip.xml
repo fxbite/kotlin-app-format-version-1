@@ -28,7 +28,7 @@
                 android:id="@+id/tripName"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@string/tripNameShowList"
-                android:textColor="@color/black"
+                android:textColor="@color/tripNameTitle"
                 android:textSize="26sp"
                 android:textStyle="bold"/>
 
@@ -72,7 +72,7 @@
             android:layout_centerInParent="true"
             android:padding="15dp"
             android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-            app:tint="#FF7D7D"
+            app:tint="@color/moveDetailIcon"
             android:contentDescription="@string/shortCutDetailTrip" />
 
     </RelativeLayout>

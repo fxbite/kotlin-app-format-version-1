@@ -7,4 +7,29 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Navigation-->
+    <color name="navigationBackground">#CFF5E7</color>
+    <color name="selectedIconNav">#59C1BD</color>
+    <color name="defaultIconNav">#0D4C92</color>
+
+    <!--Entry-->
+    <color name="switchButton">#A0E4CB</color>
+    <color name="submitButton">#975C8D</color>
+
+    <!--Show-->
+    <color name="filterButton">#D989B5</color>
+    <color name="moveDetailIcon">#FF7D7D</color>
+    <color name="tripNameTitle">#FF000000</color>
+
+    <!--Detail-->
+    <color name="tripNameHeading">#F7A76C</color>
+    <color name="iconDetail">#7F669D</color>
+    <color name="tripDetail">#BA94D1</color>
+    <color name="map">#6C4AB6</color>
+    <color name="updateButton">#FFB200</color>
+    <color name="deleteButton">#E94560</color>
+    <color name="addExpenseButton">#82CD47</color>
+    <color name="expenseLabel">#E97777</color>
+
 </resources>

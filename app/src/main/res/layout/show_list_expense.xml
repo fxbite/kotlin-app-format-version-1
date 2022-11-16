@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#E97777"
+                android:textColor="@color/expenseLabel"
                 android:text="Date:"/>
 
             <TextView
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#E97777"
+                android:textColor="@color/expenseLabel"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:text="Time:"/>
@@ -79,7 +79,7 @@
                 android:id="@+id/expenseType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#E97777"
+                android:textColor="@color/expenseLabel"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:text="Travel"/>
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#E97777"
+                android:textColor="@color/expenseLabel"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:text=":"/>
