@@ -1,5 +1,6 @@
 package com.example.kotlinnativepercy.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,8 @@ class TripAdapter: RecyclerView.Adapter<TripAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+        Log.d("Test Binding", tripList.toString())
 
         val currentItem = tripList[position]
 

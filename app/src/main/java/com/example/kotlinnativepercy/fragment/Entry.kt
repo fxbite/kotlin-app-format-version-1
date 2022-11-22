@@ -54,6 +54,7 @@ class Entry : Fragment() {
     private lateinit var assessment : SwitchCompat
     private var assessmentValue : String = "No"
     private lateinit var submitButton : MaterialButton
+    private lateinit var resetButton : MaterialButton
 
     private var longitude : Number = 0
     private var latitude : Number = 0
@@ -82,6 +83,7 @@ class Entry : Fragment() {
         hotelLayout = binding.hotelLayout
         assessment = binding.assessment
         submitButton = binding.submitButton
+        resetButton = binding.resetButton
 
         //Location
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -109,7 +111,7 @@ class Entry : Fragment() {
         }
 
         //Validate
-        inputListener()
+        inputListenerValidation()
         submitButton.setOnClickListener {
             submitForm()
         }
@@ -120,6 +122,11 @@ class Entry : Fragment() {
             else
                 "No"
             setRiskAssessmentValue(value)
+        }
+
+        // Reset All Data
+        resetButton.setOnClickListener {
+            confirmResetAllData()
         }
 
         return binding.root
@@ -281,7 +288,24 @@ class Entry : Fragment() {
 
     }
 
-    private fun inputListener() {
+    private fun confirmResetAllData() {
+        val content = "Confirm to reset all data"
+        AlertDialog.Builder(requireContext())
+            .setMessage(content)
+            .setPositiveButton("Confirm"){ _,_ ->
+                database.removeValue().addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Reset Data Successfully", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "Reset Data Failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun inputListenerValidation() {
 
         //Trip Name
         tripName.setOnFocusChangeListener { _, focused ->

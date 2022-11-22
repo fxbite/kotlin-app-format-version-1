@@ -95,16 +95,16 @@ class Show : Fragment() {
                 database.addValueEventListener(object: ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         try {
-                            val filteredItem = mutableListOf<Trip>()
+                            val filteredItemList = mutableListOf<Trip>()
                             val trip : List<Trip> = snapshot.children.map { dataSnapshot ->
 
                                 dataSnapshot.getValue(Trip::class.java)!!
 
                             }
 
-                            searchCondition(tripNameParam, destinationParam, dateParam, filteredItem, trip)
+                            searchCondition(tripNameParam, destinationParam, dateParam, filteredItemList, trip)
 
-                            val filteredTrips: List<Trip> = filteredItem.toList()
+                            val filteredTrips: List<Trip> = filteredItemList.toList()
                             adapter.updateTripList(filteredTrips)
                         } catch (e: Exception) {
 
@@ -157,7 +157,7 @@ class Show : Fragment() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
-                    val filteredItem = mutableListOf<Trip>()
+                    val filteredItemList = mutableListOf<Trip>()
                     val trip : List<Trip> = snapshot.children.map { dataSnapshot ->
 
                         dataSnapshot.getValue(Trip::class.java)!!
@@ -169,11 +169,11 @@ class Show : Fragment() {
                             item.tripName!!.lowercase().contains(queryText.lowercase()) ||
                             item.date!!.lowercase().contains(queryText.lowercase()) ||
                             item.destination!!.lowercase().contains(queryText.lowercase())) {
-                            filteredItem.add(item)
+                            filteredItemList.add(item)
                         }
                     }
 
-                    val filteredTrips: List<Trip> = filteredItem.toList()
+                    val filteredTrips: List<Trip> = filteredItemList.toList()
                     adapter.updateTripList(filteredTrips)
 
                 }catch (e : Exception){
@@ -185,79 +185,79 @@ class Show : Fragment() {
         })
     }
 
-    private fun searchCondition(tripNameParam: String, destinationParam: String,
-                                dateParam: String, filteredItem: MutableList<Trip>, trip: List<Trip>) {
-        if(tripNameParam.isNotEmpty() && destinationParam.isEmpty() && dateParam.isEmpty()) {
+    private fun searchCondition(tripNameSearchParam: String, destinationSearchParam: String,
+                                dateSearchParam: String, filteredItemList: MutableList<Trip>, trip: List<Trip>) {
+        if(tripNameSearchParam.isNotEmpty() && destinationSearchParam.isEmpty() && dateSearchParam.isEmpty()) {
             for (item in trip) {
                 if (
-                    item.tripName!!.lowercase().contains(tripNameParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.tripName!!.lowercase().contains(tripNameSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isEmpty() && destinationParam.isNotEmpty() && dateParam.isEmpty()) {
+        if(tripNameSearchParam.isEmpty() && destinationSearchParam.isNotEmpty() && dateSearchParam.isEmpty()) {
             for (item in trip) {
                 if (
-                    item.destination!!.lowercase().contains(destinationParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.destination!!.lowercase().contains(destinationSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isEmpty() && destinationParam.isEmpty() && dateParam.isNotEmpty()) {
+        if(tripNameSearchParam.isEmpty() && destinationSearchParam.isEmpty() && dateSearchParam.isNotEmpty()) {
             for (item in trip) {
                 if (
-                    item.date!!.lowercase().contains(dateParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.date!!.lowercase().contains(dateSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isNotEmpty() && destinationParam.isNotEmpty() && dateParam.isEmpty()) {
+        if(tripNameSearchParam.isNotEmpty() && destinationSearchParam.isNotEmpty() && dateSearchParam.isEmpty()) {
             for (item in trip) {
                 if (
-                    item.tripName!!.lowercase().contains(tripNameParam.lowercase()) &&
-                    item.destination!!.lowercase().contains(destinationParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.tripName!!.lowercase().contains(tripNameSearchParam.lowercase()) &&
+                    item.destination!!.lowercase().contains(destinationSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isNotEmpty() && destinationParam.isEmpty() && dateParam.isNotEmpty()) {
+        if(tripNameSearchParam.isNotEmpty() && destinationSearchParam.isEmpty() && dateSearchParam.isNotEmpty()) {
             for (item in trip) {
                 if (
-                    item.tripName!!.lowercase().contains(tripNameParam.lowercase()) &&
-                    item.date!!.lowercase().contains(dateParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.tripName!!.lowercase().contains(tripNameSearchParam.lowercase()) &&
+                    item.date!!.lowercase().contains(dateSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isEmpty() && destinationParam.isNotEmpty() && dateParam.isNotEmpty()) {
+        if(tripNameSearchParam.isEmpty() && destinationSearchParam.isNotEmpty() && dateSearchParam.isNotEmpty()) {
             for (item in trip) {
                 if (
-                    item.destination!!.lowercase().contains(destinationParam.lowercase()) &&
-                    item.date!!.lowercase().contains(dateParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.destination!!.lowercase().contains(destinationSearchParam.lowercase()) &&
+                    item.date!!.lowercase().contains(dateSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isNotEmpty() && destinationParam.isNotEmpty() && dateParam.isNotEmpty()) {
+        if(tripNameSearchParam.isNotEmpty() && destinationSearchParam.isNotEmpty() && dateSearchParam.isNotEmpty()) {
             for (item in trip) {
                 if (
-                    item.tripName!!.lowercase().contains(tripNameParam.lowercase()) &&
-                    item.destination!!.lowercase().contains(destinationParam.lowercase()) &&
-                    item.date!!.lowercase().contains(dateParam.lowercase())) {
-                    filteredItem.add(item)
+                    item.tripName!!.lowercase().contains(tripNameSearchParam.lowercase()) &&
+                    item.destination!!.lowercase().contains(destinationSearchParam.lowercase()) &&
+                    item.date!!.lowercase().contains(dateSearchParam.lowercase())) {
+                    filteredItemList.add(item)
                 }
             }
         }
 
-        if(tripNameParam.isEmpty() && destinationParam.isEmpty() && dateParam.isEmpty()) {
+        if(tripNameSearchParam.isEmpty() && destinationSearchParam.isEmpty() && dateSearchParam.isEmpty()) {
             for (item in trip) {
-                filteredItem.add(item)
+                filteredItemList.add(item)
             }
         }
 

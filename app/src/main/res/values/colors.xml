@@ -16,6 +16,7 @@
     <!--Entry-->
     <color name="switchButton">#A0E4CB</color>
     <color name="submitButton">#975C8D</color>
+    <color name="resetButton">#EB6440</color>
 
     <!--Show-->
     <color name="filterButton">#D989B5</color>
@@ -27,9 +28,10 @@
     <color name="iconDetail">#7F669D</color>
     <color name="tripDetail">#BA94D1</color>
     <color name="map">#6C4AB6</color>
-    <color name="updateButton">#FFB200</color>
-    <color name="deleteButton">#E94560</color>
-    <color name="addExpenseButton">#82CD47</color>
-    <color name="expenseLabel">#E97777</color>
+    <color name="updateButton">#FEBE8C</color>
+    <color name="deleteButton">#F7A4A4</color>
+    <color name="addExpenseButton">#B6E2A1</color>
+    <color name="expenseLabel">#B6E388</color>
+    <color name="actionButton">#FFFFFFFF</color>
 
 </resources>

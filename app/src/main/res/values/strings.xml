@@ -36,4 +36,5 @@
     <string name="time">Time</string>
     <string name="comment">Comment</string>
     <string name="addExpense">Add Expense</string>
+    <string name="resetButton">Reset All</string>
 </resources>
